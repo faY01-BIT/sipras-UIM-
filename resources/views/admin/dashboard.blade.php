@@ -4,7 +4,7 @@
 
 <div class="bg-ink text-white rounded-2xl p-6 mb-6 flex items-center justify-between">
     <div>
-        <h1 class="font-serif text-xl font-semibold mb-1">Halo, {{ auth()->user()->nama_lengkap }} 👋</h1>
+        <h1 class="font-serif text-xl font-semibold mb-1">Halo, {{ auth()->user()->nama_lengkap }}</h1>
         <p class="text-white/60 text-sm">Selamat datang kembali di panel admin SIPRAS.</p>
     </div>
     <div class="w-11 h-11 bg-gold rounded-full flex items-center justify-center">
