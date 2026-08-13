@@ -4,7 +4,7 @@
 <div class="flex justify-between items-center mb-6">
     <h1 class="font-serif text-2xl font-semibold">Pengembalian Saya</h1>
     <a href="{{ route('mahasiswa.pengembalian.create') }}" class="bg-brand hover:bg-brand-dark text-white px-4 py-2.5 rounded-lg text-sm flex items-center gap-2 transition">
-        <i class="ti ti-plus"></i> Ajukan Pengembalian
+        <x-icon name="plus" /> Ajukan Pengembalian
     </a>
 </div>
 <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">

@@ -7,7 +7,7 @@
         <p class="text-sm text-gray-500">Riwayat perawatan & perbaikan barang</p>
     </div>
     <a href="{{ route('admin.pemeliharaan.create') }}" class="bg-brand hover:bg-brand-dark text-white px-4 py-2.5 rounded-lg text-sm flex items-center gap-2 transition">
-        <i class="ti ti-plus"></i> Tambah Pemeliharaan
+        <x-icon name="plus" /> Tambah Pemeliharaan
     </a>
 </div>
 <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
@@ -31,10 +31,10 @@
                 <td class="p-3 font-mono">{{ $item->biaya ? 'Rp '.number_format($item->biaya,0,',','.') : '-' }}</td>
                 <td class="p-3"><span class="font-mono text-[10px] uppercase tracking-wide {{ $badge[0] }} {{ $badge[1] }} px-2.5 py-1 rounded-full">{{ $item->status }}</span></td>
                 <td class="p-3 space-x-3">
-                    <a href="{{ route('admin.pemeliharaan.edit', $item->id) }}" class="text-brand hover:underline"><i class="ti ti-pencil"></i></a>
+                    <a href="{{ route('admin.pemeliharaan.edit', $item->id) }}" class="text-brand hover:underline"><x-icon name="pencil" /></a>
                     <form action="{{ route('admin.pemeliharaan.destroy', $item->id) }}" method="POST" class="inline" onsubmit="return confirm('Yakin hapus?')">
                         @csrf @method('DELETE')
-                        <button class="text-red-500 hover:underline"><i class="ti ti-trash"></i></button>
+                        <button class="text-red-500 hover:underline"><x-icon name="trash" /></button>
                     </form>
                 </td>
             </tr>

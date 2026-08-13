@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Login - SIPRAS</title>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { theme: { extend: {
             colors: {
@@ -25,7 +24,7 @@
             <div>
                 <div class="flex items-center gap-3 mb-8">
                     <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center">
-                        <i class="ti ti-flame text-ink text-lg"></i>
+                        <x-icon name="flame" size="18" class="text-ink" />
                     </div>
                     <div>
                         <div class="font-serif font-semibold">SIPRAS</div>
@@ -36,9 +35,9 @@
                 <p class="text-white/70 mb-8">Kelola barang, pantau peminjaman, dan buat laporan secara real-time dari satu tempat.</p>
             </div>
             <ul class="space-y-3 text-sm text-white/80">
-                <li class="flex items-center gap-2"><i class="ti ti-box text-gold"></i> Manajemen Inventaris Real-time</li>
-                <li class="flex items-center gap-2"><i class="ti ti-clipboard-list text-gold"></i> Pengajuan & Konfirmasi Peminjaman</li>
-                <li class="flex items-center gap-2"><i class="ti ti-file-report text-gold"></i> Laporan Otomatis & Terstruktur</li>
+                <li class="flex items-center gap-2"><x-icon name="box" class="text-gold" /> Manajemen Inventaris Real-time</li>
+                <li class="flex items-center gap-2"><x-icon name="clipboard-list" class="text-gold" /> Pengajuan & Konfirmasi Peminjaman</li>
+                <li class="flex items-center gap-2"><x-icon name="file-report" class="text-gold" /> Laporan Otomatis & Terstruktur</li>
             </ul>
         </div>
 
@@ -48,12 +47,12 @@
 
             @if ($errors->any())
                 <div class="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg flex items-center gap-2">
-                    <i class="ti ti-alert-circle"></i> {{ $errors->first() }}
+                    <x-icon name="alert-circle" /> {{ $errors->first() }}
                 </div>
             @endif
             @if (session('success'))
                 <div class="mb-4 p-3 bg-brand-light text-brand-dark text-sm rounded-lg flex items-center gap-2">
-                    <i class="ti ti-circle-check"></i> {{ session('success') }}
+                    <x-icon name="circle-check" /> {{ session('success') }}
                 </div>
             @endif
 
@@ -78,14 +77,14 @@
                         @endforeach
                     </div>
                     <a href="{{ route('login') }}" title="Muat ulang kode" class="p-2 rounded-lg border hover:bg-gray-50">
-                        <i class="ti ti-refresh"></i>
+                        <x-icon name="refresh" />
                     </a>
                     <input type="text" name="captcha" placeholder="Ketik kode"
                         class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand" required autocomplete="off">
                 </div>
 
                 <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-2.5 rounded-lg transition flex items-center justify-center gap-2">
-                    Masuk ke Sistem <i class="ti ti-arrow-right"></i>
+                    Masuk ke Sistem <x-icon name="arrow-right" />
                 </button>
             </form>
         </div>

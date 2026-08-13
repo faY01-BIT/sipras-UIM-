@@ -8,7 +8,7 @@
         <p class="text-white/60 text-sm">Selamat datang kembali di panel admin SIPRAS.</p>
     </div>
     <div class="w-11 h-11 bg-gold rounded-full flex items-center justify-center">
-        <i class="ti ti-flame text-ink text-xl"></i>
+        <x-icon name="flame" size="20" class="text-ink" />
     </div>
 </div>
 
@@ -35,11 +35,37 @@
     </div>
 </div>
 
+<div class="bg-white rounded-xl border border-gray-200 overflow-hidden mb-6">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+        <span class="font-serif font-semibold">Barang Tersedia</span>
+        <a href="{{ route('barang.index') }}" class="text-xs text-brand hover:underline flex items-center gap-1">
+            Lihat semua <x-icon name="arrow-right" size="14" />
+        </a>
+    </div>
+    
+    @forelse($barangTersedia as $b)
+        <div class="flex items-center justify-between px-5 py-3 {{ !$loop->last ? 'border-b border-gray-50' : '' }}">
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">{{ $b->kode_barang }}</span>
+                <div>
+                    <p class="text-sm">{{ $b->nama_barang }}</p>
+                    <p class="text-xs text-gray-400">{{ $b->kategori->nama_kategori ?? '-' }}</p>
+                </div>
+            </div>
+            <span class="font-mono text-xs px-2.5 py-1 rounded-full {{ $b->jumlah_tersedia == 0 ? 'text-red-600 bg-red-50' : 'text-brand-dark bg-brand-light' }}">
+                {{ $b->jumlah_tersedia }} / {{ $b->jumlah_total }} unit
+            </span>
+        </div>
+    @empty
+        <p class="px-5 py-6 text-center text-sm text-gray-400">Belum ada data barang.</p>
+    @endforelse
+</div>
+
 <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
     <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
         <span class="font-serif font-semibold">Pengajuan Peminjaman Terbaru</span>
         <a href="{{ route('admin.peminjaman.index') }}" class="text-xs text-brand hover:underline flex items-center gap-1">
-            Lihat semua <i class="ti ti-arrow-right text-sm"></i>
+            Lihat semua <x-icon name="arrow-right" size="14" />
         </a>
     </div>
     @forelse($terbaru as $p)

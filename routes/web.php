@@ -31,7 +31,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
         'peminjaman_aktif' => \App\Models\Peminjaman::where('status', 'dipinjam')->count(),
     ];
     $terbaru = \App\Models\Peminjaman::with(['user', 'barang'])->latest()->limit(5)->get();
-    return view('admin.dashboard', compact('stats', 'terbaru'));
+    $barangTersedia = \App\Models\Barang::with('kategori')->orderBy('jumlah_tersedia', 'asc')->limit(5)->get();
+    return view('admin.dashboard', compact('stats', 'terbaru', 'barangTersedia'));
 })->name('admin.dashboard');
 
     Route::get('/kategori-barang', [KategoriBarangController::class, 'index'])->name('kategori-barang.index');

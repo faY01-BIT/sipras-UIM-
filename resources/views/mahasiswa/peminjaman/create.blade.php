@@ -28,7 +28,7 @@
     </div>
     <div class="flex gap-3 pt-2">
         <button type="submit" class="bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-lg text-sm font-medium transition flex items-center gap-2">
-            <i class="ti ti-send"></i> Ajukan
+            <x-icon name="send" /> Ajukan
         </button>
         <a href="{{ route('mahasiswa.barang.index') }}" class="px-5 py-2.5 rounded-lg text-sm border hover:bg-gray-50 transition">Batal</a>
     </div>

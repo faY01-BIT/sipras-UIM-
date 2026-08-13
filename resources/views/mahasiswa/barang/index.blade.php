@@ -19,7 +19,7 @@
                 <td class="p-3">
                     @if($item->jumlah_tersedia > 0)
                     <a href="{{ route('mahasiswa.peminjaman.create', ['barang_id' => $item->id]) }}" class="text-brand font-medium hover:underline flex items-center gap-1">
-                        <i class="ti ti-clipboard-plus"></i> Ajukan Pinjam
+                        <x-icon name="clipboard-plus" /> Ajukan Pinjam
                     </a>
                     @else <span class="text-gray-400">Tidak tersedia</span> @endif
                 </td>

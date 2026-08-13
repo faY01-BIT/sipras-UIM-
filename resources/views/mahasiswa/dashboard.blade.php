@@ -8,7 +8,7 @@
         <p class="text-white/60 text-sm">Kamu memiliki {{ $stats['peminjaman_aktif'] }} peminjaman aktif. Pastikan barang dikembalikan tepat waktu.</p>
     </div>
     <div class="w-11 h-11 bg-gold rounded-full flex items-center justify-center">
-        <i class="ti ti-flame text-ink text-xl"></i>
+        <x-icon name="flame" size="20" class="text-ink" />
     </div>
 </div>
 
@@ -39,7 +39,7 @@
     <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
         <span class="font-serif font-semibold">Peminjaman Saya Terbaru</span>
         <a href="{{ route('mahasiswa.peminjaman.index') }}" class="text-xs text-brand hover:underline flex items-center gap-1">
-            Lihat semua <i class="ti ti-arrow-right text-sm"></i>
+            Lihat semua <x-icon name="arrow-right" size="14" />
         </a>
     </div>
     @forelse($terbaru as $p)
