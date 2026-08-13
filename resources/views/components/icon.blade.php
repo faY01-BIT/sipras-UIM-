@@ -25,6 +25,8 @@ $icons = [
     'download' => '<path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>',
     'file-type-pdf' => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6"/><text x="12" y="18" font-family="Arial" font-size="6" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none">PDF</text>',
     'file-spreadsheet' => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M11 13v7"/>',
+    'menu' => '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    'x' => '<path d="M18 6L6 18M6 6l12 12"/>',
 ];
 $path = $icons[$name] ?? '';
 @endphp

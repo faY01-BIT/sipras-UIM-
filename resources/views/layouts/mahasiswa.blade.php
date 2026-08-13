@@ -27,7 +27,23 @@
     </script>
 </head>
 <body class="bg-paper flex min-h-screen font-sans text-ink">
-    <aside class="w-64 bg-ink text-white flex flex-col">
+    <!-- Top bar mobile: cuma muncul di layar kecil -->
+    <div class="md:hidden fixed top-0 left-0 right-0 h-14 bg-ink text-white flex items-center justify-between px-4 z-30">
+        <div class="flex items-center gap-2">
+            <div class="w-7 h-7 bg-gold rounded-lg flex items-center justify-center">
+                <x-icon name="flame" size="14" class="text-ink" />
+            </div>
+            <span class="font-serif font-semibold text-sm tracking-wide">SIPRAS</span>
+        </div>
+        <button id="sidebar-toggle" class="p-1.5 hover:bg-white/10 rounded-lg" aria-label="Buka menu">
+            <x-icon name="menu" size="22" />
+        </button>
+    </div>
+
+    <!-- Overlay: nutupin konten pas sidebar mobile lagi kebuka -->
+    <div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-30 md:hidden"></div>
+
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 bg-ink text-white flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-200">
         <div class="p-6 border-b border-white/10">
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center">
@@ -37,6 +53,9 @@
                     <div class="font-serif font-semibold text-sm tracking-wide">SIPRAS</div>
                     <div class="text-xs text-white/50">{{ auth()->user()->nama_lengkap }}</div>
                 </div>
+                <button id="sidebar-close" class="md:hidden ml-auto p-1 hover:bg-white/10 rounded-lg" aria-label="Tutup menu">
+                    <x-icon name="x" size="18" />
+                </button>
             </div>
         </div>
         <nav class="flex-1 p-4 space-y-1 text-sm">
@@ -64,7 +83,7 @@
             </button>
         </form>
     </aside>
-    <main class="flex-1 p-8">
+    <main class="flex-1 p-4 pt-20 md:p-8 md:pt-8 min-w-0">
         @if(session('success'))
             <div class="mb-4 p-3 bg-brand-light text-brand-dark rounded-lg text-sm flex items-center gap-2">
                 <x-icon name="circle-check" /> {{ session('success') }}
@@ -77,5 +96,26 @@
         @endif
         @yield('content')
     </main>
+
+    <script>
+        (function () {
+            var sidebar = document.getElementById('sidebar');
+            var overlay = document.getElementById('sidebar-overlay');
+            var openBtn = document.getElementById('sidebar-toggle');
+            var closeBtn = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+            function closeSidebar() {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+            openBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebar);
+            overlay.addEventListener('click', closeSidebar);
+        })();
+    </script>
 </body>
 </html>
